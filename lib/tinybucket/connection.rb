@@ -53,7 +53,7 @@ module Tinybucket
 
     def configure_auth(conn)
       if Tinybucket.config.access_token
-        conn.request :oauth2, Tinybucket.config.access_token
+        conn.request :oauth2, Tinybucket.config.access_token, token_type: :bearer
       else
         oauth_secrets = {
           consumer_key:    Tinybucket.config.oauth_token,
